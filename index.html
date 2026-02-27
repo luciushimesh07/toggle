@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-weight: bold;
+            color: white;
+            /* Added transition for a smooth theme switch */
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Montserrat Subrayada', sans-serif;
+            background-color: #2c2c2c;
+        }
+
+        header {
+            height: 70px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-bottom: 1px solid black;
+        }
+
+        ul {
+            display: flex;
+            list-style-type: none;
+            align-items: center;
+        }
+
+        ul li a {
+            padding: 5px 10px;
+            margin: 0 5px;
+            text-decoration: none;
+            color: white;
+            border: 2px solid white;
+            border-radius: 50px;
+        }
+
+        main {
+            display: flex;
+            height: 90vh;
+            align-items: center;
+            justify-content: space-evenly;
+            margin: 0px 150px;
+            flex-wrap: wrap;
+        }
+
+        .merc {
+            max-width: 500px;
+            height: auto;
+        }
+
+        .contentleft {
+            flex: 1;
+        }
+
+        .contentmid {
+            flex: 2;
+        }
+
+        .contentright {
+            flex: 1;
+        }
+
+        main h2 {
+            font-size: 30px;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        main p {
+            font-size: 14px;
+            font-weight: 200;
+            color: white;
+            line-height: 31.5px;
+            margin: 30px 0px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            color: black;
+            background: white;
+            outline: none;
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #2c2c2c;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .logo {
+            border: 2px solid white;
+            padding: 10px 5px;
+        }
+
+        .signup {
+            background-color: white;
+            color: black;
+        }
+
+        .signup:hover {
+            background-color: black;
+            color: white;
+        }
+
+        /* --- LIGHT MODE STYLES --- */
+        body.light-mode {
+            background-color: #f5f5f5;
+        }
+
+        /* Override the universal selector for text color in light mode */
+        body.light-mode,
+        body.light-mode * {
+            color: #2c2c2c;
+        }
+
+        body.light-mode header {
+            border-bottom: 1px solid #ccc;
+        }
+
+        body.light-mode ul li a, 
+        body.light-mode .logo {
+            border-color: #2c2c2c;
+        }
+
+        body.light-mode .signup {
+            background-color: #2c2c2c;
+            color: white;
+        }
+
+        body.light-mode .signup:hover {
+            background-color: white;
+            color: #2c2c2c;
+            border-color: #2c2c2c;
+        }
+
+        body.light-mode .btn {
+            background-color: #2c2c2c;
+            color: white;
+        }
+
+        body.light-mode .btn:hover {
+            background-color: #f5f5f5;
+            color: #2c2c2c;
+            border: 2px solid #2c2c2c;
+        }
+
+        /* Styling specifically for the toggle button */
+        #theme-toggle {
+            cursor: pointer;
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Logo</div>
+        <nav>
+            <ul>
+                <li> <a href="#"> Home </a></li>
+                <li> <a href="#"> Offers </a></li>
+                <li> <a href="#"> Buy Now </a></li>
+                <li> <a href="#"> Sell Now </a></li>
+                <li> <a href="#"> About Us </a></li>
+                <li> <a href="#" class="signup"> Sign Up </a></li>
+                <li> <a href="#" id="theme-toggle">☀️</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="contentleft">
+            <h2>Mercury</h2>
+        </div>
+        <div class="contentmid">
+            <p>Mercury, the innermost planet of the solar system and the eighth in size and mass. Its closeness to the Sun and its smallness make it the most elusive of the planets visible to the unaided eye. Because its rising or setting is always within about two hours of the Sun’s, it is never observable when the sky is fully dark. Mercury is designated by the symbol ☿. <br>
+                Mercury is the closest planet to the Sun, at a distance of 57.91 million kilometers / 35.98 miles or 0.4 AU away. It takes sunlight 3.2 minutes to travel from the Sun to Mercury.
+            </p>
+            <button class="btn">Buy Now</button>
+        </div>
+        <div class="contentright">
+            <img src="About.png" class="merc" alt="Mercury">
+        </div>
+    </main>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevents the link from jumping to the top of the page
+            
+            // Toggle the light-mode class on the body
+            body.classList.toggle('light-mode');
+
+            // Update button text based on the current theme
+            if (body.classList.contains('light-mode')) {
+                themeToggle.innerText = '☾';
+            } else {
+                themeToggle.innerText = '☀️';
+            }
+        });
+    </script>
+</body>
+</html>
