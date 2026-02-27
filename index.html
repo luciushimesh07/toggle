@@ -179,8 +179,7 @@
                 <li> <a href="#"> Sell Now </a></li>
                 <li> <a href="#"> About Us </a></li>
                 <li> <a href="#" class="signup"> Sign Up </a></li>
-                <li> <a href="#" id="theme-toggle">☀️</a></li>
-            </ul>
+<li> <a href="#" id="theme-toggle">☀️ Light</a></li>            </ul>
         </nav>
     </header>
     <main>
@@ -199,22 +198,20 @@
     </main>
 
     <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        const body = document.body;
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
 
-        themeToggle.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevents the link from jumping to the top of the page
-            
-            // Toggle the light-mode class on the body
-            body.classList.toggle('light-mode');
+    themeToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        body.classList.toggle('light-mode');
 
-            // Update button text based on the current theme
-            if (body.classList.contains('light-mode')) {
-                themeToggle.innerText = '☾';
-            } else {
-                themeToggle.innerText = '☀️';
-            }
-        });
-    </script>
+        if (body.classList.contains('light-mode')) {
+            themeToggle.innerHTML = '☾ Dark';
+        } else {
+            themeToggle.innerHTML = '☀️ Light';
+        }
+    });
+</script>
 </body>
 </html>
